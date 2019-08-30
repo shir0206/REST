@@ -18,9 +18,9 @@ app.get('/', function (req, res) {
 app.get('/sum', function (req, res) {
 	var num1 = req.query.a;
 	var num2 = req.query.b;
-	sum=calculate(num1,num2);
+	sum=calculate(parseInt(num1),parseInt(num2));
 	console.log(sum);
-	res.end(sum);
+	res.end(String(sum));
 })
 
 app.get('/watch', function (req, res) {

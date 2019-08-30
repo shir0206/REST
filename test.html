@@ -1,24 +1,92 @@
 <html>
-
+<script  src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <div> 
-<h2>hii i am test</h2>
-
-<button type="button" onclick="loadDoc()">Request data</button>
-
-
+<h2>This is test page for servers</h2>
+<div>
+ <button type="button" onclick="getFromDummy()">just show soem dummy data without server</button>
+</div>
+</br>
+ <div>
+  <button type="button" onclick="getFromLocal()">get data from my local server</button>
+ </div>
+ </br>
+ <div>
+  <button type="button" onclick="getFromExternal()">get data from my some other server</button>
+ </div>
+ </br>
+  <input id="num1"> num1</input>
+ <input id="num2"> num2</input>
+  <button type="button" onclick="calculateOnServer()">calculate inputs on server</button>
+ </div>
+ </br>
+ <h3 id="data" style="color: blue"></h3>
+ </br>
  </div>
  
  <script>
-  function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "server.js/watch?v=6", true);
-  xhttp.send();
-}
 
- 
+function resetData()
+{
+ $('#data').empty();
+}
+ function getFromDummy()
+ {
+ resetData();
+     $('#data').html("This data is just plain text , without any server involved ");
+ }
+
+  function getFromExternal() {
+ resetData();
+   $.ajax(
+      {
+        url: "https://reststop.randomhouse.com/resources/authors/3446/",
+        type: "GET",
+         success: function(server_response){
+                             if(server_response !=""){
+                                  $("#data").append($(server_response.children[0].innerHTML).text());
+                             }
+                             else{
+                                  alert('Not OKay');
+                                 }
+
+                      }
+      });
+      }
+ function getFromLocal() {
+  resetData();
+   $.ajax(
+      {
+        url: "http://localhost:8080/listUsers",
+        type: "GET",
+         success: function(server_response){
+                             if(server_response !=""){
+                                  $("#data").append(server_response);
+                             }
+                             else{
+                                  alert('Not OKay');
+                                 }
+
+                      }
+      });
+}
+function calculateOnServer()
+{
+ resetData();
+var x=$("#num1").val();
+var y=$("#num2").val();
+ $.ajax(
+      {
+        url: "http://localhost:8080/sum?a="+x+"&b="+y,
+        type: "GET",
+         success: function(server_response){
+                             if(server_response !=""){
+                                  $("#data").append(server_response);
+                             }
+                             else{
+                                  alert('Not OKay');
+                                 }
+
+                      }
+      });
+}
  </script>
