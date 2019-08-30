@@ -3,14 +3,14 @@
 
 start server  : node server.js
 
-<client side>
+####<client side>
 url for HTML : http://localhost:8080/test.html
 
-<server side>
+####<server side>
 url for APIs:  http://localhost:8080/<functionRout>
 
 
-To see how the project works run :
+* To see how the project works run :
 
-node server.js
- on browser open : http://localhost:8080/test.html
+1.node server.js
+2.on browser open : http://localhost:8080/test.html
