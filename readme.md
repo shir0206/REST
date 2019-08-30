@@ -11,6 +11,5 @@ url for APIs:  http://localhost:8080/<functionRout>
 
 
 * To see how the project works run :
-
 1.node server.js
 2.on browser open : http://localhost:8080/test.html
