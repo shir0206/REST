@@ -1,24 +1,52 @@
 <html>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<div>
+    <h1>This is test page for servers</h1>
+    <div>
+        <h3>Show dummy data without server</h3>
+        <button type="button" onclick="getFromDummy()">just show some dummy data without server</button>
+    </div>
+    </br>
+    <hr></hr>
+    <div>
+        <h3>Show data from local server</h3>
+        <button type="button" onclick="getFromLocal()">get data from local server</button>
+    </div>
+    </br>
+    <hr></hr>
+    <div>
+        <h3>Show data from file from local server</h3>
+        <button type="button" onclick="getFromLocalFile()">get data from file from local server</button>
+    </div>
+    </br>
+    <hr></hr>
+    <div>
+        <h3>Show data from other external server</h3>
+        <button type="button" onclick="getFromExternal()">get data from my some other server</button>
+    </div>
+    </br>
+    <hr></hr>
+    <div>
+        <h3>Calculate sum result on server</h3>
+        <input id="num1"> num1</input>
+        <input id="num2"> num2</input>
+        <button type="button" onclick="calculateOnServer()">calculate inputs sum on server</button>
+    </div>
+    </br>
+    <hr></hr>
+    <div>
+        <h3>Calculate multiply result on server</h3>
+        <input id="numA"> numA</input>
+        <input id="numB"> numB</input>
+        <input id="numC"> numC</input>
+        <button type="button" onclick="calculateMultipOnServer()">calculate inputs multiply on server</button>
+    </div>
+</div>
+</br>
+<hr></hr>
+<h3 id="data" style="color: blue"></h3>
+</div>
 
-<div> 
-<h2>hii i am test</h2>
+<script src="script.js"></script>
 
-<button type="button" onclick="loadDoc()">Request data</button>
-
-
- </div>
- 
- <script>
-  function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "server.js/watch?v=6", true);
-  xhttp.send();
-}
-
- 
- </script>
+</html>
