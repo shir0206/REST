@@ -1,7 +1,10 @@
 # REST
  Create local server
 
-* start server  : node server.js
+* start server - on console: node server.js
+* stop server - on console: ctrl + c
+
+
 
 ## client side
       url for HTML : http://localhost:8080/test.html
@@ -10,9 +13,8 @@
       url for APIs:  http://localhost:8080/<functionRout>
 
 
-* To see how the project works run :
+* To see how the project works:
 
-      1.node server.js
+      1. on console run the server: node server.js
 
-      2.on browser open : http://localhost:8080/test.html
-
+      2. on browser open: http://localhost:8080/test.html
