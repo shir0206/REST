@@ -49,6 +49,7 @@ app.get('/sum', function(req, res) {
     // Return result
     console.log(sum);
     res.end(String(sum));
+
 })
 
 app.get('/watch', function(req, res) {
